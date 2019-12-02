@@ -1,0 +1,64 @@
+Iniciando uma nova aplicação
+yarn init -y
+yarn add express
+yarn add sucrase nodemon -D
+yarn add eslint -d
+yarn eslint --init
+	To check syntax, find problems, and enforce code style
+	JavaScript modules (import/export)
+	None of these
+	Node
+	Use a popular styke guide
+	Airbnb
+	Javascript
+	Y
+Remover package-lock.json e rodar yarn
+	
+yarn add eslint-cli -d //Não foi instalado no dogacao
+
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+
+yarn add sequelize
+yarn add sequelize-cli -D
+yarn add pg pg-hstore /*Para o postgres*/
+yarn add bcryptjs
+yarn add jsonwebtoken
+yarn add yup
+yarn add multer
+yarn add nodemailer
+yarn add express-handlebars nodemailer-express-handlebars
+yarn add bee-queue //Para trabalhar com fila de e-mails
+yarn add express-async-errors
+yarn add youch
+yarn add ioredis
+
+Criação de uma tabela
+yarn sequelize migration:create --name=create-users
+yarn sequelize db:migrate
+**********************************************************************
+			DOCKER
+**********************************************************************
+docker ps // Serve para ver os containers rodando
+docker ps -a //Ve todos os containers
+docker stop database //Força a parada do docker
+docker start dogacao //Reinicia o docker
+docker start redisDogacao
+
+docker run --name redisDogacao -p 6379:6379 -d -t redis:alpine
+**********************************************************************
+			MIGRATE
+**********************************************************************
+yarn sequelize migration:create --name=create-users
+yarn sequelize db:migrate
+yarn sequelize db:migrate:undo
+yarn sequelize db:migrate:undo:all
+
+**********************************************************************
+			POSTGRES
+**********************************************************************
+CREATE SEQUENCE users_id_seq;
+ALTER TABLE users ALTER COLUMN id set DEFAULT nextval('users_id_seq');
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+Links uteis
+https://mailtrap.io
