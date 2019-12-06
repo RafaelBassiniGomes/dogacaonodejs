@@ -30,6 +30,8 @@ class AnimalController {
         'amizade_estranhos',
         'amizade_crianca',
         'status',
+        'sexo',
+        'castrado',
       ],
       include: [
         {
@@ -69,6 +71,8 @@ class AnimalController {
         'status',
         'abrigo_id',
         'avatar_id',
+        'sexo',
+        'castrado',
       ],
       include: [
         {
@@ -104,6 +108,8 @@ class AnimalController {
         'amizade_estranhos',
         'amizade_crianca',
         'status',
+        'sexo',
+        'castrado',
       ],
       include: [
         {
@@ -155,6 +161,8 @@ class AnimalController {
       status,
       abrigo_id,
       avatar_id,
+      sexo,
+      castrado,
     } = await Animal.create(req.body);
 
     await Cache.invalidate('animais');
@@ -175,6 +183,8 @@ class AnimalController {
       status,
       abrigo_id,
       avatar_id,
+      sexo,
+      castrado,
     });
   }
 
@@ -202,6 +212,8 @@ class AnimalController {
       status,
       abrigo_id,
       avatar_id,
+      sexo,
+      castrado,
     } = await animal.update(req.body);
 
     await Cache.invalidate('animais');
@@ -222,6 +234,8 @@ class AnimalController {
       status,
       abrigo_id,
       avatar_id,
+      sexo,
+      castrado,
     });
   }
 

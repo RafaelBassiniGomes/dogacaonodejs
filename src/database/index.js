@@ -8,10 +8,21 @@ import Remedio from '../app/models/Remedio';
 import Produto from '../app/models/Produto';
 import Parceiro from '../app/models/Parceiro';
 import Evento from '../app/models/Evento';
+import Adocao from '../app/models/Adocao';
 
 import databaseConfig from '../config/database';
 
-const models = [User, File, Abrigo, Animal, Remedio, Produto, Parceiro, Evento];
+const models = [
+  User,
+  File,
+  Abrigo,
+  Animal,
+  Remedio,
+  Produto,
+  Parceiro,
+  Evento,
+  Adocao,
+];
 
 class DataBase {
   constructor() {

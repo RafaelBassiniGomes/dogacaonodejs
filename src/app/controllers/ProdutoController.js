@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import Produto from '../models/Produto';
 import Abrigo from '../models/Abrigo';
+import File from '../models/File';
 
 class ProdutoController {
   async index(req, res) {
@@ -11,6 +12,26 @@ class ProdutoController {
           model: Abrigo,
           as: 'abrigo',
           attributes: ['id', 'nome'],
+        },
+      ],
+    });
+    return res.json(produto);
+  }
+
+  async indexByAbrigo(req, res) {
+    const produto = await Produto.findAll({
+      where: { abrigo_id: req.params.abrigoid },
+      attributes: ['id', 'nome', 'descricao', 'preco', 'quantidade', 'tamanho'],
+      include: [
+        {
+          model: Abrigo,
+          as: 'abrigo',
+          attributes: ['id', 'nome'],
+        },
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'path', 'url'],
         },
       ],
     });
@@ -50,6 +71,7 @@ class ProdutoController {
       tamanho,
       abrigo_id,
       user_id,
+      avatar_id,
     } = await Produto.create(req.body);
 
     return res.json({
@@ -61,6 +83,7 @@ class ProdutoController {
       tamanho,
       abrigo_id,
       user_id,
+      avatar_id,
     });
   }
 
@@ -88,6 +111,7 @@ class ProdutoController {
       quantidade,
       tamanho,
       user_id,
+      avatar_id,
     } = await produto.update(req.body);
 
     return res.json({
@@ -99,6 +123,7 @@ class ProdutoController {
       tamanho,
       abrigo_id,
       user_id,
+      avatar_id,
     });
   }
 

@@ -10,6 +10,7 @@ import RemedioController from './app/controllers/RemedioController';
 import ProdutoController from './app/controllers/ProdutoController';
 import ParceiroController from './app/controllers/ParceiroController';
 import EventoController from './app/controllers/EventoController';
+import AdocaoController from './app/controllers/AdocaoController';
 
 import authMiddleware from './app/middlewares/auth';
 import NotificacaoController from './app/controllers/NotificacaoController';
@@ -21,7 +22,9 @@ routes.post('/users', UserController.store);
 routes.get('/abrigos', AbrigoController.index);
 routes.get('/abrigo/:slug', AbrigoController.indexBySlug);
 routes.get('/abrigos/:id', AbrigoController.indexByPk);
+
 routes.get('/produtos', ProdutoController.index);
+routes.get('/produtosAbrigo/:abrigoid', ProdutoController.indexByAbrigo);
 routes.get('/parceiros', ParceiroController.index);
 routes.post('/parceiros', ParceiroController.store);
 routes.get('/eventos', EventoController.index);
@@ -34,6 +37,7 @@ routes.get('/files', FileController.index);
 routes.post('/sessions', SessionController.store);
 routes.post('/redefinirSenha', UserController.redefinirSenha);
 routes.post('/notificacao', NotificacaoController.index);
+routes.post('/adocoes', AdocaoController.store);
 
 routes.use(authMiddleware);
 
@@ -44,6 +48,10 @@ routes.get('/abrigosResponsavel', AbrigoController.indexByResponsavel);
 routes.get('/abrigoResponsavel/:slug', AbrigoController.indexBySlugResponsavel);
 routes.post('/abrigos', AbrigoController.store);
 routes.put('/abrigos', AbrigoController.update);
+routes.get('/adocoes/:abrigoid', AdocaoController.indexByAbrigo);
+routes.get('/adocao/:id', AdocaoController.indexByPK);
+
+routes.put('/adocoes', AdocaoController.update);
 routes.post('/animais', AnimalController.store);
 routes.put('/animais', AnimalController.update);
 routes.delete('/animais/:id', AnimalController.delete);

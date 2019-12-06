@@ -16,6 +16,8 @@ class Animal extends Model {
         amizade_estranhos: Sequelize.INTEGER,
         amizade_crianca: Sequelize.INTEGER,
         status: Sequelize.STRING,
+        sexo: Sequelize.STRING,
+        castrado: Sequelize.BOOLEAN,
       },
       {
         tableName: 'animais',
