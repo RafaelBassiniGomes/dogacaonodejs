@@ -8,6 +8,7 @@ import { FormataStringData } from '../logicas/funcao';
 
 class AnimalController {
   async index(req, res) {
+    await Cache.invalidate('animais');
     const cached = await Cache.get('animais');
 
     if (cached) {
@@ -42,7 +43,7 @@ class AnimalController {
         {
           model: Abrigo,
           as: 'abrigo',
-          attributes: ['id', 'nome', 'slug', 'email', 'telefone', 'user_id'],
+          attributes: ['id', 'nome', 'slug', 'email', 'telefone', 'estado', 'user_id'],
         },
       ],
     });
@@ -83,7 +84,7 @@ class AnimalController {
         {
           model: Abrigo,
           as: 'abrigo',
-          attributes: ['id', 'nome', 'slug', 'email', 'telefone', 'user_id'],
+          attributes: ['id', 'nome', 'slug', 'email', 'telefone', 'estado', 'user_id'],
         },
       ],
     });
@@ -120,7 +121,7 @@ class AnimalController {
         {
           model: Abrigo,
           as: 'abrigo',
-          attributes: ['id', 'nome', 'slug', 'email', 'telefone'],
+          attributes: ['id', 'nome', 'slug', 'email', 'telefone', 'estado'],
         },
       ],
     });

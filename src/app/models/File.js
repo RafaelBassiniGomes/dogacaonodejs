@@ -12,6 +12,18 @@ class File extends Model {
             return `${process.env.APP_URL}/files/${this.path}`;
           },
         },
+        avatar: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `${process.env.APP_URL}/avatar/${this.path}`;
+          },
+        },
+        facebook: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `${process.env.APP_URL}/facebook/${this.path}`;
+          },
+        },
       },
       {
         sequelize,
