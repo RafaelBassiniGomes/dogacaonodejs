@@ -7,9 +7,9 @@ import Abrigo from '../models/Abrigo';
 class SessionController {
   async store(req, res) {
     const { email, password } = req.body;
-
+    const emailMin = email.toLowerCase();
     const user = await User.findOne({
-      where: { email },
+      where: { email: emailMin },
       include: [
         {
           model: File,

@@ -7,6 +7,7 @@ import Cache from '../../lib/Cache';
 
 class AbrigoController {
   async index(req, res) {
+    await Cache.invalidate('abrigos');
     const cached = await Cache.get('abrigos');
     if (cached) {
       return res.json(cached);
@@ -40,7 +41,7 @@ class AbrigoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
       ],
     });
@@ -78,7 +79,7 @@ class AbrigoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
       ],
     });
@@ -114,7 +115,7 @@ class AbrigoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
       ],
     });
@@ -150,7 +151,7 @@ class AbrigoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
       ],
     });

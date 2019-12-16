@@ -1,8 +1,9 @@
 import Bee from 'bee-queue';
 import RedefinirSenhaMail from '../app/jobs/redefinirSenhaMail';
+import RedimensionarImagens from '../app/jobs/redimensionarImagens';
 import redisConfig from '../config/redis';
 
-const jobs = [RedefinirSenhaMail];
+const jobs = [RedefinirSenhaMail, RedimensionarImagens];
 
 class Queue {
   constructor() {

@@ -8,6 +8,7 @@ import { FormataStringData } from '../logicas/funcao';
 
 class EventoController {
   async index(req, res) {
+    await Cache.invalidate('Eventos');
     const cached = await Cache.get('Eventos');
 
     if (cached) {
@@ -38,7 +39,7 @@ class EventoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
         {
           model: Abrigo,
@@ -78,7 +79,7 @@ class EventoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
         {
           model: Abrigo,
@@ -114,7 +115,7 @@ class EventoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
         {
           model: Abrigo,

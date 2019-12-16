@@ -89,7 +89,7 @@ class UserController {
     });
     if (!user) return res.status(401).json('Usuario precisa estar logado');
 
-    if (email !== user.email) {
+    if (email.toLowerCase() !== user.email.toLowerCase()) {
       const UserExists = await User.findOne({ where: { email } });
 
       if (UserExists) {

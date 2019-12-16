@@ -38,12 +38,20 @@ class AnimalController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
         {
           model: Abrigo,
           as: 'abrigo',
-          attributes: ['id', 'nome', 'slug', 'email', 'telefone', 'estado', 'user_id'],
+          attributes: [
+            'id',
+            'nome',
+            'slug',
+            'email',
+            'telefone',
+            'estado',
+            'user_id',
+          ],
         },
       ],
     });
@@ -79,12 +87,20 @@ class AnimalController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
         {
           model: Abrigo,
           as: 'abrigo',
-          attributes: ['id', 'nome', 'slug', 'email', 'telefone', 'estado', 'user_id'],
+          attributes: [
+            'id',
+            'nome',
+            'slug',
+            'email',
+            'telefone',
+            'estado',
+            'user_id',
+          ],
         },
       ],
     });
@@ -116,7 +132,7 @@ class AnimalController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
         {
           model: Abrigo,

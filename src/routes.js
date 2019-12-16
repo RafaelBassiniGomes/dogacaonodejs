@@ -32,7 +32,6 @@ routes.get('/eventos/:id', EventoController.indexByPK);
 routes.get('/animais/:id', AnimalController.indexByPK);
 routes.get('/animais', AnimalController.index);
 routes.get('/adocoesabrigos/:abrigoid', AnimalController.indexByAbrigo);
-routes.get('/files', FileController.index);
 
 routes.post('/sessions', SessionController.store);
 routes.post('/redefinirSenha', UserController.redefinirSenha);
@@ -43,7 +42,7 @@ routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
 routes.get('/users/:id', UserController.indexByPK);
-routes.post('/files', upload.single('file'), FileController.store);
+
 routes.get('/abrigosResponsavel', AbrigoController.indexByResponsavel);
 routes.get('/abrigoResponsavel/:slug', AbrigoController.indexBySlugResponsavel);
 routes.post('/abrigos', AbrigoController.store);
@@ -66,4 +65,7 @@ routes.get('/notificacao', NotificacaoController.index);
 routes.post('/eventos', EventoController.store);
 routes.put('/eventos', EventoController.update);
 routes.delete('/eventos/:id', EventoController.delete);
+
+routes.post('/files', upload.single('file'), FileController.store);
+
 export default routes;

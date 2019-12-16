@@ -2,7 +2,9 @@ const fs = require('fs');
 const sharp = require('sharp');
 
 exports.compressImage = (file, size) => {
-  const newPath = `${file.path.split('.')[0]}.webp`;
+  let newPath = `${file.path.split('.')[0]}.webp`;
+
+  newPath = newPath.replace('uploads', `uploads/${size}`);
 
   return sharp(file.path)
     .resize(size)
@@ -14,16 +16,16 @@ exports.compressImage = (file, size) => {
     .then(data => {
       // Deletando o arquivo antigo
       // O fs.acess serve para testar se o arquivo realmente existe, evitando bugs
-      fs.access(file.path, err => {
-        // Um erro significa que a o arquivo não existe, então não tentamos apagar
-        if (!err) {
-          // Se não houve erros, tentamos apagar
-          fs.unlink(file.path, err => {
-            // Não quero que erros aqui parem todo o sistema, então só vou imprimir o erro, sem throw.
-            if (err) console.log(err);
-          });
-        }
-      });
+      // fs.access(file.path, err => {
+      // Um erro significa que a o arquivo não existe, então não tentamos apagar
+      // if (!err) {
+      // Se não houve erros, tentamos apagar
+      // fs.unlink(file.path, err => {
+      // Não quero que erros aqui parem todo o sistema, então só vou imprimir o erro, sem throw.
+      // if (err) console.log(err);
+      // });
+      // }
+      // });
 
       // Agora vamos armazenar esse buffer no novo caminho
       fs.writeFile(newPath, data, err => {
