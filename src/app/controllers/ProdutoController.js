@@ -13,6 +13,11 @@ class ProdutoController {
           as: 'abrigo',
           attributes: ['id', 'nome'],
         },
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
+        },
       ],
     });
     return res.json(produto);
@@ -31,7 +36,7 @@ class ProdutoController {
         {
           model: File,
           as: 'avatar',
-          attributes: ['id', 'path', 'url'],
+          attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
         },
       ],
     });
@@ -104,7 +109,7 @@ class ProdutoController {
           .json({ error: 'Produto já cadastrado para esse abrigo.' });
       }
     }
-
+    console.log(req.body);
     const {
       descricao,
       preco,
