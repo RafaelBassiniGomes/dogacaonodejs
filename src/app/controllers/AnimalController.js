@@ -4,7 +4,7 @@ import Abrigo from '../models/Abrigo';
 import File from '../models/File';
 
 import Cache from '../../lib/Cache';
-import { FormataStringData } from '../logicas/funcao';
+import { FormataStringData, FormataDecimal } from '../logicas/funcao';
 
 class AnimalController {
   async index(req, res) {
@@ -161,7 +161,7 @@ class AnimalController {
     req.body.status = 'A';
     req.body.data_nascimento = FormataStringData(req.body.data_nascimento);
     req.body.data_resgate = FormataStringData(req.body.data_resgate);
-
+    req.body.peso = FormataDecimal(req.body.peso);
     const {
       id,
       nome,
@@ -213,6 +213,7 @@ class AnimalController {
 
     req.body.data_nascimento = FormataStringData(req.body.data_nascimento);
     req.body.data_resgate = FormataStringData(req.body.data_resgate);
+    req.body.peso = FormataDecimal(req.body.peso);
 
     const {
       nome,

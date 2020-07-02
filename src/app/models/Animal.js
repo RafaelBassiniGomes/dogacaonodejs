@@ -6,7 +6,7 @@ class Animal extends Model {
       {
         nome: Sequelize.STRING,
         descricao: Sequelize.STRING,
-        peso: Sequelize.INTEGER,
+        peso: Sequelize.DECIMAL(6, 2),
         data_resgate: Sequelize.DATE,
         data_nascimento: Sequelize.DATE,
         tipo: Sequelize.INTEGER,

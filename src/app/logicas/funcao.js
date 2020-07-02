@@ -15,3 +15,7 @@ export function FormataDataString(data) {
 
   return `${`0${dia}`.slice(-2)}/${`0${mes}`.slice(-2)}/${ano}`;
 }
+
+export function FormataDecimal(number) {
+  return number.replace(',', '.');
+}
