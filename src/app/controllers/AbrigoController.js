@@ -162,7 +162,13 @@ class AbrigoController {
   async indexByResponsavel(req, res) {
     const abrigos = await Abrigo.findAll({
       where: { user_id: req.userId },
-      attributes: ['id', 'nome', 'title'],
+      attributes: ['id', 'nome', 'title', 'cidade', 'estado'],
+      include: [{
+        model: File,
+        as: 'avatar',
+        attributes: ['id', 'path', 'url', 'url_100', 'url_300', 'url_600'],
+      },
+    ],
     });
 
     return res.json(abrigos);
